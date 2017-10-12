@@ -1,5 +1,5 @@
 {
-  "name": "gevman/yii2-lazyload",
+  "name": "gevman/yii2-html-lazyload",
   "description": "Yii2 Lazy load Widget for html blocks",
   "type": "library",
   "license": "MIT",
