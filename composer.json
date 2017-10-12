@@ -1,0 +1,28 @@
+{
+  "name": "gevman/yii2-lazyload",
+  "description": "Yii2 Lazy load Widget for html blocks",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "Yii2",
+    "Yii-Widget",
+    "Lazy Load",
+    "Lazyload",
+    "Block Lazy Load",
+    "Composer"
+  ],
+  "authors": [
+    {
+      "name": "Gevorg Mansuryan",
+      "email": "gevorgmansuryan@gmail.com"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "~2.0.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gevman\\LazyLoad\\": "src/"
+    }
+  }
+}
