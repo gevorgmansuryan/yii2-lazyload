@@ -21,7 +21,9 @@ class LazyBlock extends Widget
     public $effect = self::EFFECT_SLIDE_UP;
     public $delay = 0;
     public $speed = 600;
-    public $options;
+    public $options = [
+        'class' => []
+    ];
 
     public function init()
     {
@@ -33,7 +35,7 @@ class LazyBlock extends Widget
     public function run()
     {
         $this->options['id'] = $this->id;
-        $this->options['class'] = (array)$this->options['class'];
+        $this->options['class'] = ArrayHelper::toArray(ArrayHelper::getValue($this->options, 'class', []));
         if ($this->effect) {
             $this->options = ArrayHelper::merge(
                 $this->options, [
