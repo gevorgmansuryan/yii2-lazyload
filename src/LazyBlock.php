@@ -32,25 +32,31 @@ class LazyBlock extends Widget
 
     public function run()
     {
-        $content = ob_get_clean();
-        return Html::tag('div', $content, ArrayHelper::merge($this->options, [
-            'id' => $this->id,
-            'class' => [
-                'lazy-load-box',
-                'trigger',
-                $this->effect
-            ],
-            'style' => [
-                '-webkit-transition' => "all {$this->speed}ms ease",
-                '-moz-transition' => "all {$this->speed}ms ease",
-                '-ms-transition' => "all {$this->speed}ms ease",
-                '-o-transition' => "all {$this->speed}ms ease",
-                'transition' => "all {$this->speed}ms ease",
-            ],
-            'data' => [
-                'delay' => $this->delay,
-                'speed' => $this->speed
-            ]
-        ]));
+        $this->options['id'] = $this->id;
+        $this->options['class'] = (array)$this->options['class'];
+        if ($this->effect) {
+            $this->options = ArrayHelper::merge(
+                $this->options, [
+                    'class' => [
+                        'lazy-load-box',
+                        'trigger',
+                        $this->effect
+                    ],
+                    'style' => [
+                        '-webkit-transition' => "all {$this->speed}ms ease",
+                        '-moz-transition' => "all {$this->speed}ms ease",
+                        '-ms-transition' => "all {$this->speed}ms ease",
+                        '-o-transition' => "all {$this->speed}ms ease",
+                        'transition' => "all {$this->speed}ms ease",
+                    ],
+                    'data' => [
+                        'delay' => $this->delay,
+                        'speed' => $this->speed
+                    ]
+                ]
+            );
+        }
+
+        return Html::tag('div', ob_get_clean(), $this->options);
     }
 }
