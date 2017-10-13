@@ -4,6 +4,7 @@ namespace Gevman\LazyLoad;
 
 use Gevman\LazyLoad\assets\LazyAsset;
 use yii\base\Widget;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 class LazyBlock extends Widget
@@ -20,6 +21,7 @@ class LazyBlock extends Widget
     public $effect = self::EFFECT_SLIDE_UP;
     public $delay = 0;
     public $speed = 600;
+    public $options;
 
     public function init()
     {
@@ -31,7 +33,7 @@ class LazyBlock extends Widget
     public function run()
     {
         $content = ob_get_clean();
-        return Html::tag('div', $content, [
+        return Html::tag('div', $content, ArrayHelper::merge($this->options, [
             'id' => $this->id,
             'class' => [
                 'lazy-load-box',
@@ -49,6 +51,6 @@ class LazyBlock extends Widget
                 'delay' => $this->delay,
                 'speed' => $this->speed
             ]
-        ]);
+        ]));
     }
 }
