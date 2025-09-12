@@ -4,7 +4,7 @@
 ## Installation (using composer)
 
 ```bash
-composer require gevman/yii2-lazyload
+composer require gevman/yii2-html-lazyload
 ```
 
 
